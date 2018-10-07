@@ -14,6 +14,13 @@ public class Calculator extends JFrame{
 	//sets layout to a BorderLayout In the CENTER, create a gridLayout for the buttons.
 	setLayout(new BorderLayout());
 	
+	//Mac code to restore normal JFrame look
+	try {
+		UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		}
+	
 	//add JTextField in North
 	JTextField line = new JTextField(40);
 	line.setBackground(Color.YELLOW);
