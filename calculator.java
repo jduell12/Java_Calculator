@@ -147,6 +147,8 @@ public class Calculator extends JFrame implements ActionListener {
 			String textField = line.getText();
 			Object source = e.getSource();
 			String text = "";
+			String num;
+			int operand1 = 0, operand2 = 0, sum = 0, operator = 0;
 			
 			if (source == b0) {
 				text = textField + "0";
@@ -168,10 +170,29 @@ public class Calculator extends JFrame implements ActionListener {
 				text = textField + "8";
 			} else if (source == b9) {
 				text = textField + "9";
+			} else if (source == plus) {
+				num = line.getText();
+				operand1 = Integer.parseInt(num);
+				operator = 1;
+				line.setText("");
+			} else if (source == equals) {
+				num = line.getText();
+				operand2 = Integer.parseInt(num);
+				switch (operator) {
+				case 1:
+					sum = operand1 + operand2;
+					text = Integer.toString(sum);
+					break;
+				}
+				
+				line.setText(text);
+				
 			}
 			
 			line.setText(text);
 	}
+	
+
 	
 	
 	public static void main(String[] args) {
