@@ -1,4 +1,4 @@
-package calculator;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -6,6 +6,8 @@ import java.awt.event.*;
 public class Calculator extends JFrame implements ActionListener {
 	JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, plus, minus, multiplication, division, equals, clear;
 	JTextField line;
+	int operand1, operand2, sum;
+	String operator = "";
 	
 	public Calculator (){
 	//title of JFrame 
@@ -148,7 +150,7 @@ public class Calculator extends JFrame implements ActionListener {
 			Object source = e.getSource();
 			String text = "";
 			String num;
-			int operand1 = 0, operand2 = 0, sum = 0, operator = 0;
+
 			
 			if (source == b0) {
 				text = textField + "0";
@@ -173,14 +175,24 @@ public class Calculator extends JFrame implements ActionListener {
 			} else if (source == plus) {
 				num = line.getText();
 				operand1 = Integer.parseInt(num);
-				operator = 1;
+				operator = "plus";
 				line.setText("");
-			} else if (source == equals) {
+			} else if (source == minus) {
+				num = line.getText();
+				operand1 = Integer.parseInt(num);
+				operator = "minus";
+				line.setText("");
+			} 
+			else if (source == equals) {
 				num = line.getText();
 				operand2 = Integer.parseInt(num);
 				switch (operator) {
-				case 1:
+				case "plus":
 					sum = operand1 + operand2;
+					text = Integer.toString(sum);
+					break;
+				case "minus":
+					sum = operand1 - operand2;
 					text = Integer.toString(sum);
 					break;
 				}
@@ -193,7 +205,6 @@ public class Calculator extends JFrame implements ActionListener {
 	}
 	
 
-	
 	
 	public static void main(String[] args) {
 		Calculator c = new Calculator();
