@@ -182,8 +182,17 @@ public class Calculator extends JFrame implements ActionListener {
 				operand1 = Integer.parseInt(num);
 				operator = "minus";
 				line.setText("");
-			} 
-			else if (source == equals) {
+			} else if (source == multiplication) {
+				num = line.getText();
+				operand1 = Integer.parseInt(num);
+				operator = "multiplication";
+				line.setText("");
+			} else if (source == division) {
+				num = line.getText();
+				operand1 = Integer.parseInt(num);
+				operator = "division";
+				line.setText("");
+			} else if (source == equals) {
 				num = line.getText();
 				operand2 = Integer.parseInt(num);
 				switch (operator) {
@@ -195,16 +204,28 @@ public class Calculator extends JFrame implements ActionListener {
 					sum = operand1 - operand2;
 					text = Integer.toString(sum);
 					break;
+				case "multiplication":
+					sum = (operand1 * operand2);
+					text = Integer.toString(sum);
+					break;
+				case "division":
+					sum = (operand1/operand2);
+					text = Integer.toString(sum);
+					break;
 				}
 				
 				line.setText(text);
 				
+			} else {
+				operand1 = 0;
+				operand2 = 0;
+				sum = 0;
+				text = "";
 			}
 			
 			line.setText(text);
 	}
 	
-
 	
 	public static void main(String[] args) {
 		Calculator c = new Calculator();
