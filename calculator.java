@@ -1,5 +1,6 @@
 
 import java.awt.*;
+import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -8,6 +9,7 @@ public class Calculator extends JFrame implements ActionListener {
 	JTextField line;
 	int operand1, operand2, sum;
 	String operator = "";
+	ArrayList <JButton> buttons = new ArrayList();
 	
 	public Calculator (){
 	//title of JFrame 
@@ -16,7 +18,7 @@ public class Calculator extends JFrame implements ActionListener {
 	//sets initial size of JFrame 
 	setSize(500, 400);
 	
-	//sets layout to a BorderLayout In the CENTER, create a gridLayout for the buttons.
+	//sets layout to a BorderLayout In the CENTER.
 	setLayout(new BorderLayout());
 	
 	//Mac code to restore normal JFrame look
@@ -35,69 +37,38 @@ public class Calculator extends JFrame implements ActionListener {
 	
 	// add gridLayout in the center for the buttons
 	JPanel centerPanel = new JPanel();
-	centerPanel.setLayout(new GridLayout(4, 4));
+	centerPanel.setLayout(new GridLayout(4, 4, 4, 4));
 	add(centerPanel, BorderLayout.CENTER);
 	
 	//Number buttons for calculator 
 	b0 = new JButton("0");
-	b0.setBackground(Color.CYAN);
-	b0.setFont(new Font("SERIF", Font.BOLD, 32));
-	centerPanel.add(b0);
-	b0.addActionListener(this);
-	
 	b1 = new JButton("1");
-	b1.setBackground(Color.CYAN);
-	b1.setFont(new Font("SERIF", Font.BOLD, 32));
-	b1.addActionListener(this);
-	centerPanel.add(b1);
-	
 	b2 = new JButton("2");
-	b2.setBackground(Color.CYAN);
-	b2.setFont(new Font("SERIF", Font.BOLD, 32));
-	b2.addActionListener(this);
-	centerPanel.add(b2);
-	
 	b3 = new JButton("3");
-	b3.setBackground(Color.CYAN);
-	b3.setFont(new Font("SERIF", Font.BOLD, 32));
-	b3.addActionListener(this);
-	centerPanel.add(b3);
-	
 	b4 = new JButton("4");
-	b4.setBackground(Color.CYAN);
-	b4.setFont(new Font("SERIF", Font.BOLD, 32));
-	b4.addActionListener(this);
-	centerPanel.add(b4);
-	
 	b5 = new JButton("5");
-	b5.setBackground(Color.CYAN);
-	b5.setFont(new Font("SERIF", Font.BOLD, 32));
-	b5.addActionListener(this);
-	centerPanel.add(b5);
-	
 	b6 = new JButton("6");
-	b6.setBackground(Color.CYAN);
-	b6.setFont(new Font("SERIF", Font.BOLD, 32));
-	b6.addActionListener(this);
-	centerPanel.add(b6);
-	
 	b7 = new JButton("7");
-	b7.setBackground(Color.CYAN);
-	b7.setFont(new Font("SERIF", Font.BOLD, 32));
-	b7.addActionListener(this);
-	centerPanel.add(b7);
-	
 	b8 = new JButton("8");
-	b8.setBackground(Color.CYAN);
-	b8.setFont(new Font("SERIF", Font.BOLD, 32));
-	b8.addActionListener(this);
-	centerPanel.add(b8);
-	
 	b9= new JButton("9");
-	b9.setBackground(Color.CYAN);
-	b9.setFont(new Font("SERIF", Font.BOLD, 32));
-	b9.addActionListener(this);
-	centerPanel.add(b9);
+	
+	buttons.add(b0);
+	buttons.add(b1);
+	buttons.add(b2);
+	buttons.add(b3);
+	buttons.add(b4);
+	buttons.add(b5);
+	buttons.add(b6);
+	buttons.add(b7);
+	buttons.add(b8);
+	buttons.add(b9);
+	
+	for (int i = 0; i < buttons.size(); i++) {
+		buttons.get(i).setBackground(Color.CYAN);
+		buttons.get(i).setFont(new Font("SERIF", Font.BOLD, 32));
+		centerPanel.add(buttons.get(i));
+		buttons.get(i).addActionListener(this);
+	}
 	
 	//Computational buttons 
 	plus = new JButton("+");
