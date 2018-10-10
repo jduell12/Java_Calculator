@@ -40,7 +40,7 @@ public class Calculator extends JFrame implements ActionListener {
 	centerPanel.setLayout(new GridLayout(4, 4, 4, 4));
 	add(centerPanel, BorderLayout.CENTER);
 	
-	//Number buttons for calculator 
+	//Added buttons for calculator 
 	b0 = new JButton("0");
 	b1 = new JButton("1");
 	b2 = new JButton("2");
@@ -51,6 +51,12 @@ public class Calculator extends JFrame implements ActionListener {
 	b7 = new JButton("7");
 	b8 = new JButton("8");
 	b9= new JButton("9");
+	plus = new JButton("+");
+	minus = new JButton("-");
+	multiplication = new JButton("*");
+	division = new JButton("/");
+	equals = new JButton("=");
+	clear = new JButton("clear");
 	
 	buttons.add(b0);
 	buttons.add(b1);
@@ -62,51 +68,26 @@ public class Calculator extends JFrame implements ActionListener {
 	buttons.add(b7);
 	buttons.add(b8);
 	buttons.add(b9);
+	buttons.add(plus);
+	buttons.add(minus);
+	buttons.add(multiplication);
+	buttons.add(division);
+	buttons.add(equals);
+	buttons.add(clear);
 	
-	for (int i = 0; i < buttons.size(); i++) {
+	for (int i = 0; i < 10; i++) {
 		buttons.get(i).setBackground(Color.CYAN);
 		buttons.get(i).setFont(new Font("SERIF", Font.BOLD, 32));
 		centerPanel.add(buttons.get(i));
 		buttons.get(i).addActionListener(this);
 	}
 	
-	//Computational buttons 
-	plus = new JButton("+");
-	plus.setBackground(Color.RED);
-	plus.setFont(new Font("SERIF", Font.BOLD, 32));
-	plus.addActionListener(this);
-	centerPanel.add(plus);
-	
-	minus = new JButton("-");
-	minus.setBackground(Color.RED);
-	minus.setFont(new Font("SERIF", Font.BOLD, 32));
-	minus.addActionListener(this);
-	centerPanel.add(minus);
-	
-	multiplication = new JButton("*");
-	multiplication.setBackground(Color.RED);
-	multiplication.setFont(new Font("SERIF", Font.BOLD, 32));
-	multiplication.addActionListener(this);
-	centerPanel.add(multiplication);
-	
-	division = new JButton("/");
-	division.setBackground(Color.RED);
-	division.setFont(new Font("SERIF", Font.BOLD, 32));
-	division.addActionListener(this);
-	centerPanel.add(division);
-	
-	equals = new JButton("=");
-	equals.setBackground(Color.RED);
-	equals.setFont(new Font("SERIF", Font.BOLD, 32));
-	equals.addActionListener(this);
-	centerPanel.add(equals);
-	
-	clear = new JButton("clear");
-	clear.setBackground(Color.RED);
-	clear.setFont(new Font("SERIF", Font.BOLD, 32));
-	clear.addActionListener(this);
-	centerPanel.add(clear);
-	
+	for (int i = 10; i < buttons.size(); i++) {
+		buttons.get(i).setBackground(Color.RED);
+		buttons.get(i).setFont(new Font("SERIF", Font.BOLD, 32));
+		buttons.get(i).addActionListener(this);
+		centerPanel.add(buttons.get(i));
+	}
 	
 	// closes on exiting
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
