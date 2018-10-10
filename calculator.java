@@ -1,15 +1,15 @@
 
 import java.awt.*;
-import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.*;
 
 public class Calculator extends JFrame implements ActionListener {
 	JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, plus, minus, multiplication, division, equals, clear;
 	JTextField line;
 	int operand1, operand2, sum;
 	String operator = "";
-	ArrayList <JButton> buttons = new ArrayList();
+	ArrayList<JButton> buttons = new ArrayList();
 	
 	public Calculator (){
 	//title of JFrame 
